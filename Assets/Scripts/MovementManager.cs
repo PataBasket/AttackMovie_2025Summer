@@ -3,12 +3,10 @@ using DG.Tweening;
 
 public class MovementManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject mainGround;
-
-    [SerializeField] 
-    private float rotationSpeed;
-    [SerializeField] float skyboxDuration;
+    [SerializeField] private GameObject mainGround;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float skyboxDuration;
+    [SerializeField] private GameObject player;
 
     private bool _isRotating = true;
     
@@ -33,5 +31,10 @@ public class MovementManager : MonoBehaviour
         {
             mainGround.transform.Rotate(Vector3.left, rotationSpeed);
         }
+    }
+
+    public void StopMovement()
+    {
+        _isRotating = false;
     }
 }
