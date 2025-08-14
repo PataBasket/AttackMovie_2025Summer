@@ -9,6 +9,7 @@ public class MovementManager : MonoBehaviour
     [SerializeField] private GameObject player;
 
     private bool _isRotating = true;
+    public bool _isRunning = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,14 +28,24 @@ public class MovementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isRotating)
+        if (_isRotating && !_isRunning)
         {
-            mainGround.transform.Rotate(Vector3.left, rotationSpeed);
+            mainGround.transform.Rotate(Vector3.left, rotationSpeed*Time.deltaTime);
+        }
+        else if (_isRotating && _isRunning)
+        {
+            mainGround.transform.Rotate(Vector3.left, rotationSpeed*1.5f*Time.deltaTime);
         }
     }
 
     public void StopMovement()
     {
         _isRotating = false;
+    }
+
+    public void UnoRun()
+    {
+        _isRotating = true;
+        _isRunning = true;
     }
 }

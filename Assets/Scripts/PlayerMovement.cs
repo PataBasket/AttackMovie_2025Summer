@@ -27,4 +27,10 @@ public class PlayerMovement : MonoBehaviour
             _photoTourCamera.StartTour();
         }
     }
+
+    public void StartRunning()
+    {
+        _animator.SetBool("isRunning", true);
+        _movementManager.UnoRun();
+    }
 }
