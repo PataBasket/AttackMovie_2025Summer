@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - StopWall
+  - Ground
+  - Showcase
   layers:
   - Default
   - TransparentFX
